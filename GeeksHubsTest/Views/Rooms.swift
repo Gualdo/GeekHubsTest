@@ -1,5 +1,5 @@
 //
-//  Root.swift
+//  Rooms.swift
 //  GeeksHubsTest
 //
 //  Created by De La Cruz, Eduardo on 31/12/2019.
@@ -8,25 +8,17 @@
 
 import SwiftUI
 
-struct Root: View {
+struct Rooms: View {
     
     @EnvironmentObject var manager: NetworkHanlder
     
     var body: some View {
-        VStack {
-            if manager.isInfoCopleted {
-                Dashboard().environmentObject(manager)
-            } else {
-                LoginView()
-            }
-        }
+        Text("This is ROOMS")
     }
 }
 
-#if DEBUG
-struct Root_Previews: PreviewProvider {
+struct Rooms_Previews: PreviewProvider {
     static var previews: some View {
-        Root()
+        Rooms()
     }
 }
-#endif

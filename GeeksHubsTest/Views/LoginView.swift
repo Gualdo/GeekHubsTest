@@ -10,12 +10,11 @@ import SwiftUI
 
 struct LoginView: View, ResponseHandler {
     
+    @EnvironmentObject var manager: NetworkHanlder
+    
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var showingAlert = false
-    @State private var doNavigate: Bool = false
-    @State private var userInfo: [String: Any]? = nil
-    @State private var roomsInfo: [[String: Any]]? = nil
     
     var isDisabled: Bool {
         return email == "" || password == ""
@@ -40,13 +39,12 @@ struct LoginView: View, ResponseHandler {
                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
             Spacer()
             Button(action: {
-                let current = NetworkHanlder.current
-                current.delegate = self
+                self.manager.delegate = self
                 var JSONDictionary = [String: AnyObject]()
                 JSONDictionary["cmd"] = "LOGIN" as AnyObject
                 JSONDictionary["email"] = self.email as AnyObject
                 JSONDictionary["password"] = self.password as AnyObject
-                current.doLogin(JSONDictionary)
+                self.manager.doLogin(JSONDictionary)
             }) {
                 Text("Login")
                     .fontWeight(.bold)
@@ -69,21 +67,5 @@ struct LoginView: View, ResponseHandler {
     
     func errorReceived() {
         showingAlert = true
-    }
-    
-    func userInfoReceived(_ JSONResponse: [String: Any]) {
-        userInfo = JSONResponse
-        doNavigate = roomsInfo != nil
-    }
-    
-    func roomsInfoReceived(_ JSONResponse: [[String: Any]]) {
-        roomsInfo = JSONResponse
-        doNavigate = userInfo != nil
-    }
-}
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
     }
 }

@@ -9,19 +9,36 @@
 import SwiftUI
 
 struct Dashboard: View {
+    
+    @EnvironmentObject var manager: NetworkHanlder
+    @State var selected = 0
+    
     var body: some View {
-        TabView {
-            LoginView().tabItem {
-                Image("Profile")
+        TabView(selection: $selected) {
+            User()
+                .environmentObject(manager)
+                .tabItem ({
+                Image(systemName: "person.fill")
                     .font(.title)
                 Text("User")
-            }
+            }).tag(0)
+            
+            Rooms()
+                .environmentObject(manager)
+                .tabItem ({
+                    Image(systemName: "message.fill")
+                        .font(.title)
+                    Text("Rooms")
+                }).tag(1)
         }
+        .accentColor(.red)
     }
 }
 
+#if DEBUG
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         Dashboard()
     }
 }
+#endif
