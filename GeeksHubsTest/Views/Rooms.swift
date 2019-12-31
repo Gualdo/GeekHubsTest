@@ -13,12 +13,6 @@ struct Rooms: View {
     @EnvironmentObject var manager: NetworkHanlder
     
     var body: some View {
-        Text("This is ROOMS")
-    }
-}
-
-struct Rooms_Previews: PreviewProvider {
-    static var previews: some View {
-        Rooms()
+        Text("Tihs is Rooms")
     }
 }

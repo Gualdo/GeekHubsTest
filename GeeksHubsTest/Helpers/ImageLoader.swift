@@ -35,17 +35,22 @@ struct ImageView: View {
 
     @ObservedObject var imageLoader: ImageLoader
     @State var image: UIImage? = nil
+    @State var nameString: String?
+    
+    var size: CGFloat?
 
-    init(withURL url:String) {
-        imageLoader = ImageLoader(urlString:url)
+    init(withURL url: String?, nameString: String, size: CGFloat) {
+        imageLoader = ImageLoader(urlString:url ?? "")
+        self.nameString = nameString
+        self.size = size
     }
 
     var body: some View {
         VStack {
-            Image(uiImage: image ?? UIImage(imageLiteralResourceName: "Avatar"))
+            Image(uiImage: image ?? UIImage(imageLiteralResourceName: nameString ?? "avatar"))
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width:150, height:150)
+                .frame(width:size, height:size)
         }.onReceive(imageLoader.objectWillChange) { data in
             self.image = UIImage(data: data) ?? UIImage()
         }

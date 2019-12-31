@@ -11,6 +11,7 @@
 		45012F2223BACDF400E8703C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45012F2123BACDF400E8703C /* User.swift */; };
 		45012F2423BACE0300E8703C /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45012F2323BACE0300E8703C /* Rooms.swift */; };
 		45012F2623BAE03800E8703C /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45012F2523BAE03800E8703C /* ImageLoader.swift */; };
+		45012F2823BB0B7D00E8703C /* RoomRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45012F2723BB0B7D00E8703C /* RoomRow.swift */; };
 		4539000023BA1CE200601D91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539FFFF23BA1CE200601D91 /* AppDelegate.swift */; };
 		4539000223BA1CE200601D91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539000123BA1CE200601D91 /* SceneDelegate.swift */; };
 		4539000423BA1CE200601D91 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539000323BA1CE200601D91 /* LoginView.swift */; };
@@ -28,6 +29,7 @@
 		45012F2123BACDF400E8703C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		45012F2323BACE0300E8703C /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
 		45012F2523BAE03800E8703C /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		45012F2723BB0B7D00E8703C /* RoomRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRow.swift; sourceTree = "<group>"; };
 		4539000123BA1CE200601D91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4539000323BA1CE200601D91 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4539000523BA1CE600601D91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				454378F023BA73F400C33BB0 /* Dashboard.swift */,
 				45012F2123BACDF400E8703C /* User.swift */,
 				45012F2323BACE0300E8703C /* Rooms.swift */,
+				45012F2723BB0B7D00E8703C /* RoomRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				45012F2223BACDF400E8703C /* User.swift in Sources */,
 				45012F2423BACE0300E8703C /* Rooms.swift in Sources */,
 				4539001923BA602F00601D91 /* NetworkHandler.swift in Sources */,
+				45012F2823BB0B7D00E8703C /* RoomRow.swift in Sources */,
 				454378F123BA73F400C33BB0 /* Dashboard.swift in Sources */,
 				4539000423BA1CE200601D91 /* LoginView.swift in Sources */,
 			);

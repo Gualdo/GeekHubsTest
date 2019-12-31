@@ -14,7 +14,7 @@ struct User: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 40) {
-            ImageView(withURL: manager.userInfo?["avatar"] as? String ?? "")
+            ImageView(withURL: manager.userInfo?["avatar"] as? String ?? "", nameString: "avatar", size: 150)
             Text(manager.userInfo?["username"] as? String ?? "")
                 .fontWeight(.bold)
                 .font(.largeTitle)
