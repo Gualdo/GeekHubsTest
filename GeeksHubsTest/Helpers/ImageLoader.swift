@@ -13,6 +13,7 @@ import Combine
 class ImageLoader: ObservableObject {
     
     var objectWillChange = PassthroughSubject<Data, Never>()
+    
     var data = Data() {
         didSet {
             objectWillChange.send(data)
@@ -34,6 +35,7 @@ class ImageLoader: ObservableObject {
 struct ImageView: View {
 
     @ObservedObject var imageLoader: ImageLoader
+    
     @State var image: UIImage? = nil
     @State var nameString: String?
     
@@ -47,7 +49,7 @@ struct ImageView: View {
 
     var body: some View {
         VStack {
-            Image(uiImage: image ?? UIImage(imageLiteralResourceName: nameString ?? "avatar"))
+            Image(uiImage: image ?? UIImage(imageLiteralResourceName: nameString ?? "Avatar"))
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width:size, height:size)

@@ -10,14 +10,14 @@ import SwiftUI
 
 struct Root: View {
     
-    @EnvironmentObject var manager: NetworkHanlder
+    @ObservedObject var manager = NetworkHanlder()
     
     var body: some View {
         VStack {
             if manager.isInfoCopleted {
-                Dashboard().environmentObject(manager)
+                Dashboard(manager: manager)
             } else {
-                LoginView()
+                Login(manager: manager)
             }
         }
     }

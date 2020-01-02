@@ -10,7 +10,8 @@ import SwiftUI
 
 struct Dashboard: View {
     
-    @EnvironmentObject var manager: NetworkHanlder
+    @ObservedObject var manager: NetworkHanlder
+    
     @State var selected = 0
     
     var body: some View {
@@ -38,7 +39,7 @@ struct Dashboard: View {
 #if DEBUG
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        Dashboard()
+        Dashboard(manager: NetworkHanlder())
     }
 }
 #endif

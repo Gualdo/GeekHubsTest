@@ -9,19 +9,21 @@
 import SwiftUI
 import Combine
 
-protocol ResponseHandler {
-    func errorReceived()
-}
-
 class NetworkHanlder: ObservableObject {
     
     var objectWillChange = PassthroughSubject<NetworkHanlder, Never>()
     
     var isInfoCopleted: Bool = false {
         willSet {
-            if newValue {
+            if newValue == true {
                 objectWillChange.send(self)
             }
+        }
+    }
+    
+    var gotError: Bool = false {
+        didSet {
+            objectWillChange.send(self)
         }
     }
     
@@ -37,7 +39,6 @@ class NetworkHanlder: ObservableObject {
     }
     
     let socket = WebSocket("wss://api.cryptysecure-dev.com/ws/cryptytalk/")
-    var delegate: ResponseHandler?
     
     init() {
         setupSocket()
@@ -54,7 +55,7 @@ class NetworkHanlder: ObservableObject {
         }
          
         socket.event.error = { error in
-            self.delegate?.errorReceived()
+            self.gotError = true
         }
          
         socket.event.message = { message in
@@ -73,30 +74,30 @@ class NetworkHanlder: ObservableObject {
                             getInfo("USER")
                             getInfo("ROOMS")
                         } else {
-                            delegate?.errorReceived()
+                            gotError = true
                         }
                     } else if JSONResponse?["event"] as? String == "USER" {
                         if let content = JSONResponse?["content"] as? [String: Any] {
                             userInfo = content
                         } else {
-                            delegate?.errorReceived()
+                            gotError = true
                         }
                     } else if JSONResponse?["event"] as? String == "ROOMS" {
                         if let content = JSONResponse?["content"] as? [[String: Any]] {
                             roomsInfo = content
                         } else {
-                            delegate?.errorReceived()
+                            gotError = true
                         }
                     } else {
-                        delegate?.errorReceived()
+                        gotError = true
                     }
                     
                 } catch {
-                    delegate?.errorReceived()
+                    gotError = true
                 }
             }
         } else {
-            delegate?.errorReceived()
+            gotError = true
         }
     }
     
@@ -106,11 +107,11 @@ class NetworkHanlder: ObservableObject {
             if let string = String(data: jsonData, encoding: String.Encoding.utf8){
                 return string
             } else {
-                delegate?.errorReceived()
+                gotError = true
                 return nil
             }
         } catch {
-            delegate?.errorReceived()
+            gotError = true
             return nil
         }
     }
