@@ -1,26 +1,22 @@
 //
-//  RoomsModel.swift
+//  ChatMOdel.swift
 //  GeeksHubsTest
 //
-//  Created by De La Cruz, Eduardo on 03/01/2020.
+//  Created by  WB-Assetstudio on 03/01/2020.
 //  Copyright © 2020 De La Cruz, Eduardo. All rights reserved.
 //
 
 import SwiftUI
 
-struct Room: Decodable, Identifiable {
+struct Message {
     var id: String?
-    var image: String?
-    var title: String?
-    var roomType: String?
-    var numUsers: Int?
-    var newMessages: Int?
-    var lastMessageUsername: String?
-    var lastMessageDate: String?
-    var isMuted: Bool?
+    var room: String?
+    var username: String?
+    var avatar: String?
+    var createdAt: String?
 }
 
-class RoomsModel {
+class ChatModel  {
     
     @ObservedObject var manager: NetworkHanlder
     
@@ -38,10 +34,10 @@ class RoomsModel {
         } catch let jsonError {
             print("Failed to decode:", jsonError)
         }
-        self.configureView()
+//        self.configureView()
     }
     
-    fileprivate func configureView() {
-        self.view = RoomsList(roomsModel: self)
-    }
+//    fileprivate func configureView() {
+//        self.view = RoomsList(roomsModel: self)
+//    }
 }

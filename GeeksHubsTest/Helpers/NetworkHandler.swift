@@ -9,6 +9,13 @@
 import SwiftUI
 import Combine
 
+enum Event: String {
+    case login = "LOGIN"
+    case user = "USER"
+    case rooms = "ROOMS"
+    case messages = "MESSAGES"
+}
+
 class NetworkHanlder: ObservableObject {
     
     var objectWillChange = PassthroughSubject<NetworkHanlder, Never>()
@@ -22,6 +29,12 @@ class NetworkHanlder: ObservableObject {
     }
     
     var gotError: Bool = false {
+        didSet {
+            objectWillChange.send(self)
+        }
+    }
+    
+    var messages: Data? = nil {
         didSet {
             objectWillChange.send(self)
         }
@@ -68,22 +81,25 @@ class NetworkHanlder: ObservableObject {
             if let data = text.data(using: .utf8) {
                 do {
                     let JSONResponse = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any]
+                    let event: Event = Event(rawValue: JSONResponse?["event"] as! String)!
                     
-                    if JSONResponse?["event"] as? String == "LOGIN" {
+                    switch event {
+                    case .login:
                         if let content = JSONResponse?["content"] as? [String: String], content["status"] == "logged" {
                             getInfo("USER")
                             getInfo("ROOMS")
                         } else {
                             gotError = true
                         }
-                    } else if JSONResponse?["event"] as? String == "USER" {
+                    case .user:
                         let jsonData = try JSONSerialization.data(withJSONObject: JSONResponse?["content"] ?? [String: Any](), options: .prettyPrinted)
                         userInfo = jsonData
-                    } else if JSONResponse?["event"] as? String == "ROOMS" {
+                    case .rooms:
                         let jsonData = try JSONSerialization.data(withJSONObject: JSONResponse?["content"] ?? [[String: Any]](), options: .prettyPrinted)
                         roomsInfo = jsonData
-                    } else {
-                        gotError = true
+                    case .messages:
+                        let jsonData = try JSONSerialization.data(withJSONObject: JSONResponse?["content"] ?? [[String: Any]](), options: .prettyPrinted)
+                        messages = jsonData
                     }
                 } catch {
                     gotError = true
@@ -117,6 +133,11 @@ class NetworkHanlder: ObservableObject {
     }
     
     func doLogin(_ JSONDictionary: [String: AnyObject]) {
+        guard let string = dictionaryToString(JSONDictionary) else { return }
+        self.socket.send(string)
+    }
+    
+    func getMessages(_ JSONDictionary: [String: AnyObject]) {
         guard let string = dictionaryToString(JSONDictionary) else { return }
         self.socket.send(string)
     }

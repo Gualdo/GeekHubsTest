@@ -10,18 +10,16 @@ import SwiftUI
 
 struct RoomRow: View {
     
-    var image: String?
+    var room: Room
     var imageName: String
     var size: CGFloat
-    var title: String?
-    var type: String?
     
-    var body: some View {
+    var body: some View {        
         HStack {
-            ImageView(withURL: image, nameString: imageName, size: size)
+            ImageView(withURL: room.image, nameString: imageName, size: size)
             VStack {
-                Text(title ?? "")
-                Text(type ?? "")
+                Text(room.title ?? "")
+                Text(room.roomType ?? "")
             }
         }
     }
