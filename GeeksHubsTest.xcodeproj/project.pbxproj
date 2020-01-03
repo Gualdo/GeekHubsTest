@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		45012F1F23BAC0D400E8703C /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45012F1E23BAC0D400E8703C /* Root.swift */; };
-		45012F2223BACDF400E8703C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45012F2123BACDF400E8703C /* User.swift */; };
-		45012F2423BACE0300E8703C /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45012F2323BACE0300E8703C /* Rooms.swift */; };
+		45012F2223BACDF400E8703C /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45012F2123BACDF400E8703C /* UserView.swift */; };
+		45012F2423BACE0300E8703C /* RoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45012F2323BACE0300E8703C /* RoomsView.swift */; };
 		45012F2623BAE03800E8703C /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45012F2523BAE03800E8703C /* ImageLoader.swift */; };
 		45012F2823BB0B7D00E8703C /* RoomRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45012F2723BB0B7D00E8703C /* RoomRow.swift */; };
 		4539000023BA1CE200601D91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539FFFF23BA1CE200601D91 /* AppDelegate.swift */; };
@@ -22,12 +22,14 @@
 		4539001923BA602F00601D91 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539001823BA602F00601D91 /* NetworkHandler.swift */; };
 		454378F123BA73F400C33BB0 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454378F023BA73F400C33BB0 /* Dashboard.swift */; };
 		4592183823BE02B500B581FA /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4592183723BE02B500B581FA /* Login.swift */; };
+		45DDAE1C23BF555B0048CC2E /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DDAE1B23BF555A0048CC2E /* UsersModel.swift */; };
+		45DDAE1E23BF70BF0048CC2E /* RoomsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DDAE1D23BF70BF0048CC2E /* RoomsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		45012F1E23BAC0D400E8703C /* Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
-		45012F2123BACDF400E8703C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		45012F2323BACE0300E8703C /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
+		45012F2123BACDF400E8703C /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		45012F2323BACE0300E8703C /* RoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsView.swift; sourceTree = "<group>"; };
 		45012F2523BAE03800E8703C /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		45012F2723BB0B7D00E8703C /* RoomRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRow.swift; sourceTree = "<group>"; };
 		4539000123BA1CE200601D91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +44,8 @@
 		4539FFFF23BA1CE200601D91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		454378F023BA73F400C33BB0 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		4592183723BE02B500B581FA /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		45DDAE1B23BF555A0048CC2E /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
+		45DDAE1D23BF70BF0048CC2E /* RoomsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +75,8 @@
 			children = (
 				45012F1E23BAC0D400E8703C /* Root.swift */,
 				454378F023BA73F400C33BB0 /* Dashboard.swift */,
-				45012F2123BACDF400E8703C /* User.swift */,
-				45012F2323BACE0300E8703C /* Rooms.swift */,
+				45012F2123BACDF400E8703C /* UserView.swift */,
+				45012F2323BACE0300E8703C /* RoomsView.swift */,
 				45012F2723BB0B7D00E8703C /* RoomRow.swift */,
 				4592183723BE02B500B581FA /* Login.swift */,
 			);
@@ -115,6 +119,7 @@
 		4539FFFE23BA1CE200601D91 /* GeeksHubsTest */ = {
 			isa = PBXGroup;
 			children = (
+				45DDAE1A23BF554B0048CC2E /* Models */,
 				4539FFFF23BA1CE200601D91 /* AppDelegate.swift */,
 				4539000123BA1CE200601D91 /* SceneDelegate.swift */,
 				45012F2023BAC0E100E8703C /* Views */,
@@ -125,6 +130,15 @@
 				4539000723BA1CE600601D91 /* Preview Content */,
 			);
 			path = GeeksHubsTest;
+			sourceTree = "<group>";
+		};
+		45DDAE1A23BF554B0048CC2E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				45DDAE1B23BF555A0048CC2E /* UsersModel.swift */,
+				45DDAE1D23BF70BF0048CC2E /* RoomsModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,12 +214,14 @@
 			files = (
 				4539000023BA1CE200601D91 /* AppDelegate.swift in Sources */,
 				4539001723BA57B200601D91 /* WebSocket.swift in Sources */,
+				45DDAE1C23BF555B0048CC2E /* UsersModel.swift in Sources */,
 				45012F2623BAE03800E8703C /* ImageLoader.swift in Sources */,
+				45DDAE1E23BF70BF0048CC2E /* RoomsModel.swift in Sources */,
 				4592183823BE02B500B581FA /* Login.swift in Sources */,
 				45012F1F23BAC0D400E8703C /* Root.swift in Sources */,
 				4539000223BA1CE200601D91 /* SceneDelegate.swift in Sources */,
-				45012F2223BACDF400E8703C /* User.swift in Sources */,
-				45012F2423BACE0300E8703C /* Rooms.swift in Sources */,
+				45012F2223BACDF400E8703C /* UserView.swift in Sources */,
+				45012F2423BACE0300E8703C /* RoomsView.swift in Sources */,
 				4539001923BA602F00601D91 /* NetworkHandler.swift in Sources */,
 				45012F2823BB0B7D00E8703C /* RoomRow.swift in Sources */,
 				454378F123BA73F400C33BB0 /* Dashboard.swift in Sources */,

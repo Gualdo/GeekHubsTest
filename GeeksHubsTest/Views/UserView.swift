@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  UserView.swift
 //  GeeksHubsTest
 //
 //  Created by De La Cruz, Eduardo on 31/12/2019.
@@ -8,17 +8,17 @@
 
 import SwiftUI
 
-struct User: View {
+struct UserView: View {
     
-    @EnvironmentObject var manager: NetworkHanlder
+    var userModel: UsersModel
     
     var body: some View {
         VStack(alignment: .center, spacing: 40) {
-            ImageView(withURL: manager.userInfo?["avatar"] as? String ?? "", nameString: "avatar", size: 150)
-            Text(manager.userInfo?["username"] as? String ?? "")
+            ImageView(withURL: userModel.user?.avatar ?? "", nameString: "avatar", size: 150)
+            Text(userModel.user?.username ?? "")
                 .fontWeight(.bold)
                 .font(.largeTitle)
-            Text(manager.userInfo?["email"] as? String ?? "")
+            Text(userModel.user?.email ?? "")
                 .fontWeight(.bold)
                 .font(.largeTitle)
         }

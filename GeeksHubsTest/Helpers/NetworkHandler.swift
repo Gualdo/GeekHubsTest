@@ -27,12 +27,12 @@ class NetworkHanlder: ObservableObject {
         }
     }
     
-    var userInfo: [String: Any]? = nil {
+    var userInfo: Data? = nil {
         didSet {
             isInfoCopleted = roomsInfo != nil
         }
     }
-    var roomsInfo: [[String: Any]]? = nil {
+    var roomsInfo: Data? = nil {
         didSet {
             isInfoCopleted = userInfo != nil
         }
@@ -77,21 +77,14 @@ class NetworkHanlder: ObservableObject {
                             gotError = true
                         }
                     } else if JSONResponse?["event"] as? String == "USER" {
-                        if let content = JSONResponse?["content"] as? [String: Any] {
-                            userInfo = content
-                        } else {
-                            gotError = true
-                        }
+                        let jsonData = try JSONSerialization.data(withJSONObject: JSONResponse?["content"] ?? [String: Any](), options: .prettyPrinted)
+                        userInfo = jsonData
                     } else if JSONResponse?["event"] as? String == "ROOMS" {
-                        if let content = JSONResponse?["content"] as? [[String: Any]] {
-                            roomsInfo = content
-                        } else {
-                            gotError = true
-                        }
+                        let jsonData = try JSONSerialization.data(withJSONObject: JSONResponse?["content"] ?? [[String: Any]](), options: .prettyPrinted)
+                        roomsInfo = jsonData
                     } else {
                         gotError = true
                     }
-                    
                 } catch {
                     gotError = true
                 }

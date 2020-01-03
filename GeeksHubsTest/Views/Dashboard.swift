@@ -16,16 +16,14 @@ struct Dashboard: View {
     
     var body: some View {
         TabView(selection: $selected) {
-            User()
-                .environmentObject(manager)
+            UsersModel(manager: manager).view
                 .tabItem ({
                 Image(systemName: "person.fill")
                     .font(.title)
                 Text("User")
             }).tag(0)
             
-            Rooms()
-                .environmentObject(manager)
+            RoomsModel(manager: manager).view
                 .tabItem ({
                     Image(systemName: "message.fill")
                         .font(.title)

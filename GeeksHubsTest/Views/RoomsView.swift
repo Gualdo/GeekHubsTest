@@ -1,5 +1,5 @@
 //
-//  Rooms.swift
+//  RoomsView.swift
 //  GeeksHubsTest
 //
 //  Created by De La Cruz, Eduardo on 31/12/2019.
@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct Rooms: View {
+struct RoomsView: View {
     
-    @EnvironmentObject var manager: NetworkHanlder
+    var roomsModel: RoomsModel
     
     var body: some View {
         Text("Tihs is Rooms")
